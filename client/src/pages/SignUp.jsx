@@ -10,7 +10,6 @@ export default function SignUp() {
   const navigate = useNavigate();
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.id]: e.target.value });
-   
   };
 
   const handleSubmit = async (e) => {
@@ -81,7 +80,9 @@ export default function SignUp() {
           <span className="text-blue-500">Sign in</span>
         </Link>
       </div>
-      <p className="text-red-700 mt-5">{error ? error.message || "Something went wrong!" : ""}</p>
+      <p className="text-red-700 mt-5">
+        {error ? error.message || "Something went wrong!" : ""}
+      </p>
     </div>
   );
 }
