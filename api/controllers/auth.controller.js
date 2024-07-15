@@ -17,6 +17,7 @@ export const signup = async (req, res, next) => {
   }
 };
 
+//sigin 
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
@@ -36,11 +37,12 @@ export const signin = async (req, res, next) => {
   }
 };
 
+//OAuth Google Signin
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       const { password: hashedPassword, ...rest } = user._doc;
       const expiryDate = new Date(Date.now() + 3600000);
       res.cookie("access_token", token, {
@@ -76,4 +78,10 @@ export const google = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+//signout
+export const signout = async (req, res) => {
+  res.clearCookie('access_token').status(200).json("Signout Success");
+  
 };
