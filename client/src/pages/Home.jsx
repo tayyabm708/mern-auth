@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
   return (
-    <div className="px-4 py-12 max-w-2xl mx-auto text-justify ">
+    <div className="px-4 py-12 max-w-2xl mx-auto">
       <h1 className="text-3xl font-bold mb-4 text-slate-800 ">Welcome to my Authentication App</h1>
       <p className="mb-4 text-slate-700 ">
         A powerful and seamless solution for managing user authentication is
